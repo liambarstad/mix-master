@@ -1,4 +1,11 @@
 <h1><%= @artist.name %></h1>
 <%= image_tag @artist.image_path %>
-<%= link_to "New Song", new_artist_song_path(@artist) %>
-<%= link_to "Delete", artist_path(@artist), method: :delete %>
+<h2>Songs</h2>
+<ul>
+  <% @artist.songs.each do |song| %>
+  <li><%= link_to song.title, artist_song_path(@artist, song) %></li>
+  <% end %>
+</ul>
+<div><%= link_to "New Song", new_artist_song_path(@artist) %></div>
+<div><%= link_to "Delete", artist_path(@artist), method: :delete %></div>
+<div><%= link_to "Back to Artists", artists_path %></div>

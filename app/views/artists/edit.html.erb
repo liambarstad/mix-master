@@ -1,4 +1,5 @@
-<% form_for @artist do |f| %>
+<%= image_tag @artist.image_path %>
+<%= form_for @artist do |f| %>
   <% if @artist.errors.any? %>
     <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this record from being saved:</h2>
     <ul>
@@ -7,12 +8,11 @@
       <% end %>
     </ul>
   <% end %>
-  
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
   <%= f.label :image_path %>
-  <%= image_tag @artist.image_path %>
   <%= f.text_field :image_path %>
 
   <%= f.submit %>

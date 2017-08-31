@@ -6,6 +6,9 @@ RSpec.feature "User can edit an artist" do
 
     visit("/")
     click_on("Edit", match: :first)
+
+    expect(current_path).to eq(edit_artist_path(artist))
+
     fill_in "artist_name", with: "DJ Khaled"
     image = params[:image_path]
     click_on("Update Artist")

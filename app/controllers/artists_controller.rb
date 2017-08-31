@@ -5,6 +5,14 @@ class ArtistsController < ApplicationController
     @artists = Artist.all
   end
 
+  def edit
+    if @artist.save
+      redirect_to @artist
+    else
+      render :edit
+    end
+  end
+
   def new
     @artist = Artist.new
   end
@@ -19,14 +27,6 @@ class ArtistsController < ApplicationController
   end
 
   def show
-  end
-
-  def edit
-    if @artist.save
-      redirect_to @artist
-    else
-      render :edit
-    end
   end
 
   def destroy
